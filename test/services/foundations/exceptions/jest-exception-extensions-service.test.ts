@@ -55,7 +55,9 @@ describe('Jest Exception Extensions Service Test Suite', () => {
         });
 
         test('Should return a failing assertion when the action does not throw an exception', () => {
-            const action = jest.fn(() => {});
+            const action = jest.fn(() => {
+                return;
+            });
             const expectedException = new Exception();
             const expectedAssertionResult = new AssertionResult(
                 'Expected action to throw an exception.',
@@ -178,7 +180,9 @@ describe('Jest Exception Extensions Service Test Suite', () => {
         });
 
         test('Should return a failing assertion when the action does not throw an exception', async () => {
-            const action = jest.fn(async () => {});
+            const action = jest.fn(async () => {
+                return;
+            });
             const expectedException = new Exception();
             const expectedAssertionResult = new AssertionResult(
                 'Expected action to throw an exception.',
