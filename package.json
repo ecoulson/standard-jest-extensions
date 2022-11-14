@@ -1,6 +1,6 @@
 {
     "name": "@the-standard/jest-extensions",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Extensions for jest that provide expect extensions for the-standard libraries",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
