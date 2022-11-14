@@ -1,6 +1,5 @@
 import { Exception } from '@the-standard/exceptions';
-import { Action } from '../../models/action/action';
-import { AsyncAction } from '../../models/action/async-action';
+import { Action } from '@the-standard/types';
 import { AssertionResult } from '../../models/assertion-result/assertion-result';
 import { JestExceptionExtensionsService } from '../../services/foundations/exceptions/jest-exception-extensions-service';
 import { IJestExceptionsExtensionsClient } from './jest-exceptions-extensions-client.interface';
@@ -16,7 +15,7 @@ export class JestExceptionExtensionsClient
     }
 
     assertActionThrowsExpectedException(
-        action: Action,
+        action: Action<void>,
         expectedException: Exception
     ): AssertionResult {
         return this.jestExceptionExtensionsService.assertActionThrowsExpectedException(
@@ -26,7 +25,7 @@ export class JestExceptionExtensionsClient
     }
 
     assertActionThrowsExpectedExceptionAsync(
-        asyncAction: AsyncAction,
+        asyncAction: Action<Promise<void>>,
         expectedException: Exception
     ): Promise<AssertionResult> {
         return this.jestExceptionExtensionsService.assertActionThrowsExpectedExceptionAsync(

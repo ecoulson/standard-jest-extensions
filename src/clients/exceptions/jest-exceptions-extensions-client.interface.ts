@@ -1,16 +1,15 @@
 import { Exception } from '@the-standard/exceptions';
-import { Action } from '../../models/action/action';
-import { AsyncAction } from '../../models/action/async-action';
+import { Action } from '@the-standard/types';
 import { AssertionResult } from '../../models/assertion-result/assertion-result';
 
 export interface IJestExceptionsExtensionsClient {
     assertActionThrowsExpectedException(
-        action: Action,
+        action: Action<void>,
         expectedException: Exception
     ): AssertionResult;
 
     assertActionThrowsExpectedExceptionAsync(
-        asyncAction: AsyncAction,
+        asyncAction: Action<Promise<void>>,
         expectedException: Exception
     ): Promise<AssertionResult>;
 }

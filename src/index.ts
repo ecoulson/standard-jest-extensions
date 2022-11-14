@@ -1,13 +1,12 @@
 import './@types';
 import { Exception } from '@the-standard/exceptions';
 import { JestExceptionExtensionsClient } from './clients/exceptions/jest-exceptions-extensions-client';
-import { Action } from './models/action/action';
-import { AsyncAction } from './models/action/async-action';
+import { Action } from '@the-standard/types';
 
 const client = new JestExceptionExtensionsClient();
 
 expect.extend({
-    toThrowException(action: Action, expectedException: Exception) {
+    toThrowException(action: Action<void>, expectedException: Exception) {
         const assertion = client.assertActionThrowsExpectedException(
             action,
             expectedException
@@ -18,7 +17,7 @@ expect.extend({
         };
     },
     async toThrowExceptionAsync(
-        action: AsyncAction,
+        action: Action<Promise<void>>,
         expectedException: Exception
     ) {
         const assertion = await client.assertActionThrowsExpectedExceptionAsync(
