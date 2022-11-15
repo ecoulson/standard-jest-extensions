@@ -49,6 +49,6 @@
     },
     "dependencies": {
         "@the-standard/exceptions": "^1.0.6",
-        "@the-standard/types": "^1.0.0"
+        "@the-standard/types": "^1.0.1"
     }
 }
